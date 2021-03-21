@@ -1,0 +1,98 @@
+.about {
+    padding-top: 9.3rem;
+    padding-bottom: 11rem;
+    background-color: white;
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 3rem;
+    }
+
+    &-item {
+        position: relative;
+        z-index: 1;
+        transition: all 0.25s linear;
+
+        &::after {
+            content: "";
+            @include absoluteFull();
+            @include bg($third-color);
+            z-index: -1;
+        }
+
+        &:hover {
+            transform: translate(-1rem, -1rem);
+            .about-content {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            &::after {
+                transform: translate(1rem, 1rem);
+            }
+        }
+    }
+
+    &-content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include size(100%);
+        background: linear-gradient(
+            to bottom,
+            rgba($primary-color, 0.8),
+            rgba($secondary-color, 0.8)
+        );
+        z-index: 2;
+        color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        text-transform: uppercase;
+        transition: all 0.25s linear;
+
+        opacity: 0;
+        visibility: hidden;
+        text-align: center;
+
+        padding: 2rem;
+    }
+
+    &-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    &-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+        @include textClamp();
+    }
+
+    @include maxWidth(767px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        &-list {
+            grid-template-columns: unset;
+            grid-auto-flow: column;
+            grid-auto-columns: 80%;
+            grid-column-gap: 2.5rem;
+            overflow-x: auto;
+            padding: 1rem;
+            -ms-scroll-snap-type: x mandatory;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+            @include hideScroll;
+        }
+
+        &-item {
+            scroll-snap-align: center;
+        }
+    }
+}

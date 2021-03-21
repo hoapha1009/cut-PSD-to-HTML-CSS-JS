@@ -1,0 +1,104 @@
+.quote {
+    padding: 6.5rem;
+    background-color: $gray-color;
+
+    .slick-initialized .slick-slide {
+        display: flex;
+    }
+
+    .slick-arrow {
+        @include bg(transparent);
+        border: none;
+        @include absoluteCenter("top");
+        padding: 1rem 2rem;
+        font-size: 3rem;
+        color: $gray-dark-color;
+        font-weight: 300;
+        z-index: 10;
+    }
+
+    .slick-prev {
+        left: 0;
+    }
+
+    .slick-next {
+        right: 0;
+    }
+
+    &-content {
+        padding: 0 5.5rem;
+        @include flexBox(center);
+        outline: none;
+    }
+
+    &-image {
+        flex-shrink: 0;
+        margin-right: 2.5rem;
+        img {
+            @include size(22rem);
+            -o-object-fit: cover;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    &-icon {
+        padding: 4rem;
+        border: 3px solid $third-color;
+        margin-right: 6rem;
+    }
+
+    &-desc {
+        font-family: $secondary-font;
+        color: $text-color;
+        font-style: italic;
+        @include textClamp(3);
+        line-height: 3.5rem;
+        font-size: 2.4rem;
+        font-weight: 300;
+        margin-bottom: 2.5rem;
+    }
+
+    &-author {
+        font-family: $third-font;
+        font-size: 2.4rem;
+        position: relative;
+        padding-left: 8rem;
+
+        &::after {
+            content: "";
+            left: 0;
+            @include absoluteCenter("top");
+            @include size(6rem, 4px);
+            @include bg($primary-color);
+        }
+    }
+
+    @include maxWidth(767px) {
+        padding: 2.5rem;
+
+        &-arrow {
+            display: none;
+        }
+
+        &-content {
+            padding: 0;
+            flex-direction: column;
+        }
+
+        &-info {
+            padding: 0;
+        }
+
+        &-icon {
+            padding: 2rem;
+            margin-bottom: 2rem;
+            margin-right: 0;
+        }
+
+        &-desc {
+            display: block;
+            font-size: 1.6rem;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.number {
+    @include bg($third-color);
+
+    &-list {
+        @include flexBox;
+    }
+
+    &-item {
+        width: 20%;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+
+        padding: 8.5rem 3.5rem;
+        border-left: 1px solid white;
+
+        &-count {
+            font-size: 7.2rem;
+            font-weight: bold;
+            padding-bottom: 2rem;
+        }
+
+        &:last-child {
+            border-right: 1px solid white;
+        }
+
+        &-text {
+            line-height: 1.4rem;
+        }
+    }
+
+    @include maxWidth(1023px) {
+        &-item {
+            padding: 5rem 1.5rem;
+
+            &-count {
+                font-size: 5rem;
+                margin-bottom: 1rem;
+            }
+
+            &-text {
+                font-size: 1.4rem;
+                line-height: 1.8rem;
+            }
+        }
+    }
+
+    @include maxWidth(767px) {
+        &-list {
+            display: block;
+        }
+
+        &-item {
+            width: 100%;
+            padding: 2.5rem 1.5rem;
+
+            &:not(:last-child) {
+                border-bottom: 1px solid white;
+            }
+
+            &:not(:nth-child(999)) {
+                border-left: none;
+                border-right: none;
+            }
+
+            &-count {
+                padding-bottom: 0;
+            }
+        }
+    }
+}

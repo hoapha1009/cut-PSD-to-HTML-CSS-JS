@@ -1,0 +1,64 @@
+.service {
+    padding: 11rem 0 12rem;
+    @include bg(white);
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 8rem;
+
+        margin-top: 6.5rem;
+        padding-bottom: 6.5rem;
+
+        border-bottom: 1px solid $gray-dark-color;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    &-item {
+        @include flexBox(flex-start);
+
+        &-icon {
+            width: 3.4rem;
+            margin: 0.3rem 3rem;
+        }
+
+        &-info {
+            width: calc(100% - 9.5rem);
+        }
+
+        &-title {
+            text-transform: uppercase;
+            color: $title-color;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            line-height: 1.4rem;
+            @include textClamp();
+        }
+
+        &-desc {
+            color: $text-color;
+            line-height: 1.6rem;
+            font-weight: 30rem;
+            font-family: $secondary-font;
+        }
+    }
+
+    @include maxWidth(1023px) {
+        &-list {
+            display: block;
+            padding: 0 3rem;
+        }
+
+        &-item {
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        &-item:last-child {
+            margin-bottom: 5rem;
+        }
+    }
+}

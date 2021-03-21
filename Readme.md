@@ -3,7 +3,7 @@ Cut PSD file to HTML, CSS, JS website
 
 ## Link to web demo:
 
-https://css-project-coderx-2020.web.app
+https://cut-psd.vercel.app/
 
 ## Technologies:
 
